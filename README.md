@@ -1,2 +1,2 @@
-# lykia-wallet-android
-Cross-Chain Wallet
+# yorkie-wallet-android
+Solana Permissionless Wallet Application
