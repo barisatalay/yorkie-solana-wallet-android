@@ -2,6 +2,7 @@
 This is paw made a open source Solana Permissionless Wallet Application. We use https://api.solscan.io APIs.
 
 # Features
+- [ ] Multi Wallet Support
 - [ ] Transaction history.
 - [ ] RPC configuration.
 - [ ] Key pair generation
