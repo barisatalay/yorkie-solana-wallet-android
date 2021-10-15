@@ -1,0 +1,15 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+def libraries = rootProject.ext.libraries
+
+dependencies {
+    api "com.google.code.gson:gson:${libraries.gsonVersion}"
+}

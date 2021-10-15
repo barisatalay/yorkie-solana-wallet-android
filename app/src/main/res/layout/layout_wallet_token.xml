@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.barisatalay.yorkiewallet.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_wallet_token"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@string/wallet_tokens"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_20sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:verticalItemSpace="@{50}"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_token" />
+
+        <TextView
+            android:id="@+id/tv_wallet_liquidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@string/wallet_liquidity"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_20sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_liquidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:verticalItemSpace="@{50}"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_token" />
+
+        <TextView
+            android:id="@+id/tv_wallet_yield_farming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@string/wallet_yield_farming"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_20sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_yield_farming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:verticalItemSpace="@{50}"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_token" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

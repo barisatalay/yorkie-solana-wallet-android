@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Yorkie Wallet</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="tap_back_btn_twice">Press again for Exit</string>
+    <string name="wallet_tokens">Wallet tokens</string>
+    <string name="wallet_liquidity">Liquidity</string>
+    <string name="wallet_yield_farming">Yield farming</string>
+    <string name="price_format">$%,.2f</string>
+
+</resources>
