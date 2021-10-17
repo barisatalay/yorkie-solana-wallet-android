@@ -32,27 +32,27 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
-            .client(okHttpClient)
-            .baseUrl(Constants.API_BASE)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
-            .build()
+                .client(okHttpClient)
+                .baseUrl(Constants.API_BASE)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+                .build()
     }
 
     @Provides
     @Singleton
     fun provideOkHttp(loggingInterceptor: HttpLoggingInterceptor, customInterceptor: CustomInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
-            .apply {
-                if (BuildConfig.DEBUG) {
-                    //addInterceptor(loggingInterceptor)
+                .apply {
+                    if (BuildConfig.DEBUG) {
+                        //addInterceptor(loggingInterceptor)
+                    }
+                    addInterceptor(customInterceptor)
+                    readTimeout(Constants.NETWORK_TIME_OUT, TimeUnit.SECONDS)
+                    connectTimeout(Constants.NETWORK_TIME_OUT, TimeUnit.SECONDS)
+                    writeTimeout(Constants.NETWORK_TIME_OUT, TimeUnit.SECONDS)
                 }
-                //addInterceptor(customInterceptor)
-                readTimeout(Constants.NETWORK_TIME_OUT, TimeUnit.SECONDS)
-                connectTimeout(Constants.NETWORK_TIME_OUT, TimeUnit.SECONDS)
-                writeTimeout(Constants.NETWORK_TIME_OUT, TimeUnit.SECONDS)
-            }
-            .build()
+                .build()
     }
 
     @Provides

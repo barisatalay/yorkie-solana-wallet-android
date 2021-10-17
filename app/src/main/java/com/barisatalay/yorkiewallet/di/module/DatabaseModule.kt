@@ -7,6 +7,7 @@ import com.barisatalay.domain.Constants
 import com.barisatalay.yorkiewallet.BuildConfig
 import com.barisatalay.yorkiewallet.data.local.WalletDatabase
 import com.barisatalay.yorkiewallet.data.local.dao.TokenDao
+import com.barisatalay.yorkiewallet.data.local.dao.WalletDao
 import com.barisatalay.yorkiewallet.di.qualifier.MigrationQualifier
 import dagger.Module
 import dagger.Provides
@@ -25,12 +26,18 @@ class DatabaseModule {
         val builder = Room.databaseBuilder(context, WalletDatabase::class.java, Constants.DB_NAME)
         if (!BuildConfig.DEBUG) builder.fallbackToDestructiveMigration()
         return builder.addMigrations(*migrations.toTypedArray())
-            .build()
+                .build()
     }
 
     @Provides
     @Singleton
-    fun provideLocalizationDao(database: WalletDatabase): TokenDao {
+    fun provideTokenDao(database: WalletDatabase): TokenDao {
         return database.tokenDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideWalletDao(database: WalletDatabase): WalletDao {
+        return database.walletDao()
     }
 }

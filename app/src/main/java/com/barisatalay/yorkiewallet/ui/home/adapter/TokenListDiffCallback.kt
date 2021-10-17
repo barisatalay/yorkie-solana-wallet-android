@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.DiffUtil
 import com.barisatalay.domain.model.TokenModel
 
 class TokenListDiffCallback constructor(
-    private var oldList: List<com.barisatalay.domain.model.TokenModel>,
-    private var newList: List<com.barisatalay.domain.model.TokenModel>
+    private var oldList: List<TokenModel>,
+    private var newList: List<TokenModel>
 ) : DiffUtil.Callback() {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

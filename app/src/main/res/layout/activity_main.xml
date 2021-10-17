@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.barisatalay.yorkiewallet.MainViewModel" />
+            type="com.barisatalay.yorkiewallet.ui.main.MainViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -27,9 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer" />
+            android:fitsSystemWindows="true" >
+            <include android:id="@+id/nav_view_layout"
+                layout="@layout/nav_view_layout" />
+        </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

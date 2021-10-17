@@ -2,14 +2,15 @@ plugins {
     id 'java-library'
     id 'kotlin'
 }
+def libraries = rootProject.ext.libraries
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7
 }
 
-def libraries = rootProject.ext.libraries
-
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.20"
+
     api "com.google.code.gson:gson:${libraries.gsonVersion}"
 }

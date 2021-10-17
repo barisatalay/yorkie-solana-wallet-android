@@ -1,10 +1,13 @@
 package com.barisatalay.yorkiewallet.di.module
 
 import com.barisatalay.yorkiewallet.data.local.dao.TokenDao
+import com.barisatalay.yorkiewallet.data.local.dao.WalletDao
 import com.barisatalay.yorkiewallet.data.mapper.ApiToEntityMapper
 import com.barisatalay.yorkiewallet.data.remote.RetrofitApi
-import com.barisatalay.yorkiewallet.data.repository.TokenRepository
-import com.barisatalay.yorkiewallet.data.repository.TokenRepositoryImpl
+import com.barisatalay.yorkiewallet.data.repository.token.TokenRepository
+import com.barisatalay.yorkiewallet.data.repository.token.TokenRepositoryImpl
+import com.barisatalay.yorkiewallet.data.repository.wallet.WalletRepository
+import com.barisatalay.yorkiewallet.data.repository.wallet.WalletRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,10 +20,10 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideTokenRepository(tokenDao: TokenDao, api: RetrofitApi, mapper: ApiToEntityMapper): TokenRepository = TokenRepositoryImpl(tokenDao, api, mapper)
+    fun provideWalletRepository(walletDao: WalletDao): WalletRepository = WalletRepositoryImpl(walletDao)
 
-//    @Binds
-//    @Provides
-//    abstract fun provideTokenRepository(impl: TokenRepositoryImpl): TokenRepository
+    @Provides
+    @Singleton
+    fun provideTokenRepository(tokenDao: TokenDao, api: RetrofitApi, mapper: ApiToEntityMapper): TokenRepository = TokenRepositoryImpl(tokenDao, api, mapper)
 
 }

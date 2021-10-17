@@ -6,13 +6,13 @@ import com.barisatalay.yorkiewallet.data.local.entity.TokenEntity
 class ApiToEntityMapper {
     fun accountTokenToEntity(walletId: String, it: AccountTokenResult): TokenEntity {
         return TokenEntity(
-            walletId = walletId,
-            address = it.tokenAddress.orEmpty(),
+            walletAddress = walletId,
+            contractAddress = it.tokenAddress.orEmpty(),
             code = it.tokenSymbol.orEmpty(),
             name = it.tokenName.orEmpty(),
             icon = it.tokenIcon.orEmpty(),
             amount = it.tokenAmount?.uiAmount ?: 0.0,
-            pricaUsdt = it.priceUsdt ?: 0.0,
+            priceUsdt = it.priceUsdt ?: 0.0,
             lamports = it.lamports ?: 0,
             decimals = it.tokenAmount?.decimals ?: 0.0
         ).apply {
