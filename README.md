@@ -3,6 +3,9 @@ This is paw made a open source Solana Permissionless Wallet Application. We use 
 
 # Features
 - [x] Multi Wallet Support
+- [ ] Liquidity info Support
+- [ ] Lending / Borrowing info Support
+- [ ] Leverage positions info Support
 - [ ] Transaction history.
 - [ ] RPC configuration.
 - [ ] Key pair generation
