@@ -1,13 +1,10 @@
 package com.barisatalay.yorkiewallet.usecase
 
 import com.barisatalay.domain.model.WalletModel
-import com.barisatalay.yorkiewallet.data.local.entity.TokenEntity
-import com.barisatalay.yorkiewallet.data.local.entity.WalletEntity
 import com.barisatalay.yorkiewallet.data.mapper.EntityToUiMapper
 import com.barisatalay.yorkiewallet.data.repository.token.TokenRepository
 import com.barisatalay.yorkiewallet.data.repository.wallet.WalletRepository
 import io.reactivex.Observable
-import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
 class GetActiveWalletUseCase @Inject constructor(

@@ -45,13 +45,13 @@ class HomeViewModel @Inject constructor(
     }
 
     fun getTokenList(walletId: String, networkType: NetworkType) {
-        getWalletBalanceRemoteUseCase.get(walletId, networkType)
+        getWalletBalanceRemoteUseCase.get(walletId, networkType, true)
                 .observeAndSubscribeOn(Schedulers.io())
                 .doOnSubscribe { isWalletLoading.postValue(true) }
                 .subscribe { it ->
                     isWalletLoading.postValue(false)
                     isRemoteLoading.postValue(false)
-                    Log.d("HomeViewModel","getTokenList Finished")
+                    Log.d("HomeViewModel", "getTokenList Finished")
                 }.addTo(compositeDisposable)
     }
 
