@@ -10,7 +10,7 @@ data class TokenEntity(
         val name: String,
         var icon: String,
         val amount: Double,
-        val priceUsdt: Double,
+        var priceUsdt: Double,
         val lamports: Int,
-        val decimals: Double,
+        val decimals: Double
 )

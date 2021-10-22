@@ -11,4 +11,6 @@ open class BaseException(val originalException: Throwable?) : Throwable() {
     class SocketTimeoutException(originalException: Throwable) : BaseException(originalException)
     class UnknownHostException(originalException: Throwable) : BaseException(originalException)
 
+    class SolScanMapperException() : BaseException(Exception("Unexpected exeption"))
+
 }

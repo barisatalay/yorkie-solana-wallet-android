@@ -22,15 +22,15 @@ class ApiToEntityMapper {
         }
     }
 
-    fun solAccountToEntity(walletAddress: String, responseResult: SolAccountResult): TokenEntity {
+    fun solAccountToEntity(walletAddress: String, responseResult: SolAccountResult, marketPrice: Double?): TokenEntity {
         return TokenEntity(
                 walletAddress = walletAddress,
                 contractAddress = responseResult.ownerProgram.orEmpty(),
                 code = "SOL",
                 name = "Solana",
                 icon = "https://cdn.jsdelivr.net/gh/trustwallet/assets@master/blockchains/solana/info/logo.png",
-                amount = 1.0,
-                priceUsdt = (responseResult.lamports ?: 0) / (1000000000.0),
+                amount = (responseResult.lamports ?: 0) / (1000000000.0),
+                priceUsdt = marketPrice ?: 0.0,
                 lamports = responseResult.lamports ?: 0,
                 decimals = 6.0
         )
