@@ -11,7 +11,7 @@ interface TokenDao : BaseDao<TokenEntity> {
     @Query(" Select * from Token Where walletAddress=:walletAddress ")
     fun getTokenList(walletAddress: String): Single<List<TokenEntity>>
 
-    @Query(" Delete From Token Where walletAddress=:walletAddress and code<>'SOL' ")
+    @Query(" Delete From Token Where walletAddress=:walletAddress and isMainToken<>1 ")
     fun removeTokens(walletAddress: String)
 
     @Transaction

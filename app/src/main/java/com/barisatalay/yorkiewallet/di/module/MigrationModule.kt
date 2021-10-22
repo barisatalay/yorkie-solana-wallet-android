@@ -54,4 +54,15 @@ object MigrationModule {
             }
         }
     }
+
+    @IntoSet
+    @Provides
+    @MigrationQualifier
+    fun migrate2to3(): Migration {
+        return object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE Token ADD COLUMN 'isMainToken' INTEGER NOT NULL DEFAULT 0 ")
+            }
+        }
+    }
 }

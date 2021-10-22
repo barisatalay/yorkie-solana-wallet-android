@@ -15,11 +15,9 @@ class ApiToEntityMapper {
                 amount = it.tokenAmount?.uiAmount ?: 0.0,
                 priceUsdt = it.priceUsdt ?: 0.0,
                 lamports = it.lamports ?: 0,
-                decimals = it.tokenAmount?.decimals ?: 0.0
-        ).apply {
-//            if (icon.isEmpty())
-//                icon = "https://sonar.watch/logos/coins/unknown.jpg"
-        }
+                decimals = it.tokenAmount?.decimals ?: 0.0,
+                isMainToken = false
+        )
     }
 
     fun solAccountToEntity(walletAddress: String, responseResult: SolAccountResult, marketPrice: Double?): TokenEntity {
@@ -32,7 +30,8 @@ class ApiToEntityMapper {
                 amount = (responseResult.lamports ?: 0) / (1000000000.0),
                 priceUsdt = marketPrice ?: 0.0,
                 lamports = responseResult.lamports ?: 0,
-                decimals = 6.0
+                decimals = 6.0,
+                isMainToken = true
         )
     }
 }

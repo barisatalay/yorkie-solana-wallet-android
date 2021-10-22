@@ -14,7 +14,7 @@ import com.barisatalay.yorkiewallet.data.local.typeconverter.NetworkTypeConverte
         TokenEntity::class,
         WalletEntity::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = true
 )
 @TypeConverters(
