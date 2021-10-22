@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.barisatalay.domain.model.TokenModel" />
@@ -13,62 +14,87 @@
         android:id="@+id/clContainer"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:background="@drawable/bg_token"
         android:paddingStart="@dimen/_8sdp"
-        android:paddingEnd="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_20sdp">
+        android:paddingEnd="@dimen/_8sdp">
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
+            placeHolderImageId="@{@drawable/ic_unknown_token}"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
             app:imageUrl="@{item.icon}"
             app:isCircularImage="@{true}"
-            placeHolderImageId="@{@drawable/ic_unknown_token}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_abr_token" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
-        <TextView
-            android:id="@+id/tv_symbol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:textColor="?attr/colorOnPrimary"
-            android:text="@{item.code}"
-            android:textSize="@dimen/_9sdp"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_icon"
             app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toTopOf="@id/guideline"
-            tools:text="ABR" />
+            app:layout_constraintTop_toTopOf="@id/iv_icon">
 
-        <TextView
-            android:id="@+id/tv_price"
+            <TextView
+                android:id="@+id/tv_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.code}"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/_12sdp"
+                tools:text="ABR" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/decimal_format_with_dolar(item.priceUSDT)}"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_8sdp"
+                tools:text="$7.0" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="@dimen/_9sdp"
-            app:layout_constraintStart_toStartOf="@id/tv_symbol"
-            app:layout_constraintTop_toBottomOf="@id/tv_symbol"
-            android:text="@{item.priceUSDT + ``}"
-            tools:text="7.0" />
-
-        <TextView
-            android:id="@+id/tv_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@{@string/price_format(item.calculated)}"
-            tools:text="2500" />
+            app:layout_constraintTop_toTopOf="@id/iv_icon">
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/decimal_format_with_dolar(item.calculated)}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_gravity="end"
+                tools:text="2500" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="@{@string/decimal_format(item.amount)}"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_8sdp"
+                android:layout_gravity="end"
+                tools:text="$7.0" />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

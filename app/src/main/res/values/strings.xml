@@ -14,7 +14,8 @@
     <string name="wallet_tokens">Wallet tokens</string>
     <string name="wallet_liquidity">Liquidity</string>
     <string name="wallet_yield_farming">Yield farming</string>
-    <string name="price_format">$%,.2f</string>
+    <string name="decimal_format_with_dolar">$%,.2f</string>
+    <string name="decimal_format">%,.2f</string>
     <string name="connect_wallet">Connect Wallet</string>
     <string name="public_address">Public Address</string>
     <string name="hint_wallet_public_address">PBWMyr8RCSVAR3EC9dmaHlKwersqw946nceDPEbq9KlBr</string>
