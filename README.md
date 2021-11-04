@@ -12,6 +12,7 @@ This is paw made a open source Solana Permissionless Wallet Application. We use 
 - [ ] Key pair generation
 - [ ] Sign and send transactions.
 - [ ] Stake (Delegator)
+- [ ] News of token changes via Notification
 
 ### Support it 
 
